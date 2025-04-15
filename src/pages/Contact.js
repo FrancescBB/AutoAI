@@ -1,80 +1,70 @@
 import React, { useState } from 'react';
 import NavBar from '../components/Navbar/NavBar';
 import Footer from '../components/Footer';
-import {useDocTitle} from '../components/CustomHook';
-import axios from 'axios';
-// import emailjs from 'emailjs-com';
+import { useDocTitle } from '../components/CustomHook';
+// import axios from 'axios';
+import emailjs from 'emailjs-com';
 import Notiflix from 'notiflix';
 
 const Contact = () => {
-    useDocTitle('MLD | Molad e Konsult - Send us a message')
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
-    const [message, setMessage] = useState('')
-    const [errors, setErrors] = useState([])
+    useDocTitle('MLD | Molad e Konsult - Send us a message');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const clearErrors = () => {
-        setErrors([])
-    }
+        setErrors([]);
+    };
 
     const clearInput = () => {
-        setFirstName('')
-        setLastName('')
-        setEmail('')
-        setPhone('')
-        setMessage('')
-    }
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPhone('');
+        setMessage('');
+    };
 
     const sendEmail = (e) => {
         e.preventDefault();
         document.getElementById('submitBtn').disabled = true;
-        document.getElementById('submitBtn').innerHTML = 'Loading...';
-        let fData = new FormData();
-        fData.append('first_name', firstName)
-        fData.append('last_name', lastName)
-        fData.append('email', email)
-        fData.append('phone_number', phone)
-        fData.append('message', message)
+        document.getElementById('submitBtn').innerHTML = 'Enviando...';
 
-        axios({
-            method: "post",
-            url: process.env.REACT_APP_CONTACT_API,
-            data: fData,
-            headers: {
-                'Content-Type':  'multipart/form-data'
-            }
-        })
-        .then(function (response) {
+        const templateParams = {
+            from_name: `${firstName} ${lastName}`,
+            from_email: email,
+            phone: phone,
+            message: message
+        };
+
+        emailjs.send(
+            'service_m1xza2s',
+            'template_8ekva08',
+            templateParams,
+            'C0vEUqqMQ5eyx0GGl'
+        )
+        .then((response) => {
             document.getElementById('submitBtn').disabled = false;
-            document.getElementById('submitBtn').innerHTML = 'send message';
-            clearInput()
-            //handle success
+            document.getElementById('submitBtn').innerHTML = 'Enviar';
+            clearInput();
             Notiflix.Report.success(
-                'Success',
-                response.data.message,
-                'Okay',
+                'Éxito',
+                'Tu mensaje ha sido enviado correctamente.',
+                'Vale'
             );
-        })
-        .catch(function (error) {
+        }, (error) => {
             document.getElementById('submitBtn').disabled = false;
-            document.getElementById('submitBtn').innerHTML = 'send message';
-            //handle error
-            const { response } = error;
-            if(response.status === 500) {
-                Notiflix.Report.failure(
-                    'An error occurred',
-                    response.data.message,
-                    'Okay',
-                );
-            }
-            if(response.data.errors !== null) {
-                setErrors(response.data.errors)
-            }
-            
+            document.getElementById('submitBtn').innerHTML = 'Enviar';
+            Notiflix.Report.failure(
+                'Error',
+                'Ha ocurrido un error al enviar el mensaje. Inténtalo de nuevo.',
+                'Ok'
+            );
+            console.error('EmailJS Error:', error);
         });
-    }
+    };
     return (
         <>
             <div>
@@ -87,7 +77,7 @@ const Contact = () => {
 
                     <div className="w-full bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
                         <div className="flex">
-                            <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Send us a message</h1>
+                            <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Envía un mensaje</h1>
                         </div>
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
                                 <div>
@@ -166,7 +156,7 @@ const Contact = () => {
                         <div className="my-2 w-1/2 lg:w-2/4">
                             <button type="submit" id="submitBtn" className="uppercase text-sm font-bold tracking-wide bg-gray-500 hover:bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
                                     focus:outline-none focus:shadow-outline">
-                                Send Message
+                                Enviar
                             </button>
                         </div>
                 </div>
@@ -180,8 +170,8 @@ const Contact = () => {
                                         <i className="fas fa-map-marker-alt pt-2 pr-2" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <h2 className="text-2xl">Office Address</h2>
-                                        <p className="text-gray-400">Ilo Awela, Ota, Ogun State</p>
+                                        <h2 className="text-2xl">Email Agencia</h2>
+                                        <p className="text-gray-400">Autoai@gmail.com</p>
                                     </div>
                                 </div>
                     
@@ -191,12 +181,12 @@ const Contact = () => {
                         </div>
 
                         <div className="flex flex-col">
-                        <h2 className="text-2xl">Call Us</h2>
-                        <p className="text-gray-400">Tel: 08055384406</p>
+                        <h2 className="text-2xl">Llama</h2>
+                        <p className="text-gray-400">Tel: +34 623519084</p>
                         
                             <div className='mt-5'>
-                                <h2 className="text-2xl">Send an E-mail</h2>
-                                <p className="text-gray-400">info@mld.ng</p>
+                                <h2 className="text-2xl">Envia un E-mail personal</h2>
+                                <p className="text-gray-400">francescbb19@gmail.com</p>
                             </div>
                        
                         </div>

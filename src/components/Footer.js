@@ -14,12 +14,12 @@ const Footer = () => {
                     {/* 1st block */}
                     <div className="col-span-12 lg:col-span-4">
                         <div className="box-border border-b-4 border-blue-900 p-8 bg-gray-200 text-gray-600 text-center rounded-lg xl:w-80 mx-auto">
-                            <h3 className="font-bold text-4xl mb-4">MLD</h3>
+                            <h3 className="font-bold text-4xl mb-4">AutoAI</h3>
                             <div className='text-md font-medium text-gray-600'>
-                                <h5>Molad e Konsult</h5>
-                                <p>Ilo Awela,</p>
-                                <p>Ota,</p>
-                                <p>Ogun State.</p>
+                                <h5>Automatiza</h5>
+                                <p>Ahorra</p>
+                                <p>Integra</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -29,32 +29,32 @@ const Footer = () => {
                         <h6 className="text-[#013289] text-xl font-bold mb-4">LINKS</h6>
                         <ul className="text-md">
                         <li className="mb-2">
-                            <HashLink to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">About</HashLink>
+                            <HashLink to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Nosotros</HashLink>
                         </li>
                         <li className="mb-2">
-                            <HashLink to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Services</HashLink>
+                            <HashLink to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Servicios</HashLink>
                         </li>
                         <li className="mb-2">
-                            <HashLink to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Contact</HashLink>
+                            <HashLink to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Contacto</HashLink>
                         </li>                            
                         </ul>
                     </div>
 
                     {/* 3rd block */}
                     <div className="col-span-6 md:col-span-6 lg:col-span-4 mx-auto">
-                        <h6 className="text-[#013289] text-xl font-bold mb-4">OUR SERVICES</h6>
+                        <h6 className="text-[#013289] text-xl font-bold mb-4">Nuestros Servicios</h6>
                         <ul className="text-md">
                         <li className="mb-2">
-                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Web Development</Link>
+                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Automatización de procesos</Link>
                         </li>
                         <li className="mb-2">
-                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Mobile App Development</Link>
+                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Automatización de flujos de trabajo</Link>
                         </li>
                         <li className="mb-2">
-                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Domain and Hosting</Link>
+                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Desarrollo de Chatbots</Link>
                         </li>
                         <li className="mb-2">
-                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">General IT Consultations</Link>
+                            <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Desarrollo de Agentes IA</Link>
                         </li>
                         </ul>
                     </div>
@@ -62,11 +62,11 @@ const Footer = () => {
                     {/* 4th block */}
                     <div className="col-span-12 text-center mx-auto lg:col-span-3 font-bold uppercase text-blue-900">
                         <div className="text-xl mb-6">
-                            Social Media Links.
+                            Redes Sociales
                         </div>
 
                                 <div className="text-md font-medium mb-6">
-                                    Follow us on social media.
+                                    Siguenos en nuestras Redes Sociales
                                 </div>
                         <div className="mx-auto text-center mt-2">
                                 <ul className="flex justify-center mb-4 md:mb-0">
@@ -98,7 +98,7 @@ const Footer = () => {
                         to="#"
                         className=" hover:text-gray-900"
                     >
-                        Molad e Konsult
+                        AutoAI
                     </HashLink>. All rights reserved.
                     </div>
                 </div>
